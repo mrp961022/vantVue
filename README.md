@@ -27,3 +27,6 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+Vant 按需加载，如果不需要，可以删除依赖"babel-plugin-import"，然后再 import 引入 Vant 即可

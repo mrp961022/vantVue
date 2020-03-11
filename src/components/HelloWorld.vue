@@ -1,58 +1,68 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+    <div class="hello">
+        <van-button type="info">信息按钮</van-button>
+        <van-cell-group>
+            <van-cell title="单元格" value="内容" />
+            <van-cell title="单元格" value="内容" label="描述信息" />
+        </van-cell-group>
+        <van-row></van-row>
+
+        <van-row>
+            <van-icon name="chat-o" color="blue" dot />
+            <van-icon name="chat-o" color="red" info="33" />
+        </van-row>
+        <van-row>
+            <van-col span="11">
+                <van-image width="100" height="100" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+            </van-col>
+            <van-col span="11">
+                <!-- <van-image src="https://img.yzcdn.cn/vant/cat.jpeg">
+                    <template v-slot:loading>
+                        <van-loading type="spinner" size="20" />
+                    </template>
+                </van-image>-->
+                <van-image src="https://img.yzcdn.cn/vant/cat.jpeg">
+                    <template v-slot:error>加载失败</template>
+                </van-image>
+            </van-col>
+        </van-row>
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
-}
+    name: "HelloWorld",
+    props: {
+        msg: String
+    },
+    data() {
+        return {
+            isLasy: false
+        };
+    },
+    created() {
+        this.isLasy = true;
+        setTimeout(() => {
+            this.isLasy = false;
+        }, 10000);
+    }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
-  margin: 40px 0 0;
+    margin: 40px 0 0;
 }
 ul {
-  list-style-type: none;
-  padding: 0;
+    list-style-type: none;
+    padding: 0;
 }
 li {
-  display: inline-block;
-  margin: 0 10px;
+    display: inline-block;
+    margin: 0 10px;
 }
 a {
-  color: #42b983;
+    color: #42b983;
 }
 </style>
